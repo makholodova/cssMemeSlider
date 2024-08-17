@@ -1,0 +1,274 @@
+﻿html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+/* V1 */
+/*.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 50px;
+    background-color: rgba(204, 191, 196, 0.6);
+}
+
+.slider__slides {
+    display: flex;
+/ / justify-content: center;
+    overflow: hidden;
+    max-width: 700px;
+}
+
+.slider__slide {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.slide__img {
+    width: 700px;
+    height: 320px;
+    border-radius: 9px;
+}
+
+.slide__text {
+   
+}*/
+
+.slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px 0 50px;
+    background-color: rgba(204, 191, 196, 0.6);
+}
+
+.slider__img {
+    display: flex;
+    overflow: hidden;
+    max-width: 700px;
+}
+
+.slider__text {
+    display: flex;
+    overflow: hidden;
+    max-width: 350px;
+}
+
+.slide__text {
+    display: block;
+    width: 350px;
+}
+
+/* V2 */
+
+.slide__img {
+    width: 700px;
+    height: 320px;
+    border-radius: 9px;
+}
+
+
+/* Основной контейнер для слайдов */
+
+
+/* Управление слайдами */
+/*#slide--1:checked~ .slider__img #slider__slide--1 {
+    animation: none;
+}
+#slide--2:checked~  .slider__img #slider__slide--2 {
+    animation: none;
+}
+
+.firstAnimation {
+    animation: slide-out-next 5s linear infinite;
+}
+.secondAnimation {
+    animation: slide-out-next 5s linear infinite;
+}
+
+@keyframes slide-out-next {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-700px));
+    }
+}*/
+
+
+.slider {
+    position: relative;
+}
+
+.slider__img, .slider__text {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider__slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Изменение отображения слайдов на основе чекбоксов */
+#slide--1:checked ~ .slider__slides {
+    transform: translateX(0%);
+}
+
+#slide--2:checked ~ .slider__slides {
+    transform: translateX(-100%);
+}
+
+#slide--3:checked ~ .slider__slides {
+    transform: translateX(-200%);
+}
+
+#slide--4:checked ~ .slider__slides {
+    transform: translateX(-300%);
+}
+
+
+
+/* Slider Controls*/
+
+input[type="radio"] {
+    display: none;
+}
+
+.slider__controls {
+    display: flex;
+
+}
+
+.slider__label {
+    padding: 4px 4px 8px 4px;
+    cursor: pointer;
+}
+   
+.slider__decorator {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #0b2f4a;
+    background-color: #0b2f4a;
+
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.slider__label:hover .slider__decorator {
+    border-color: white;
+    background-color: white;
+}
+
+.slider__label:active .slider__decorator {
+    border-color: #ece9e9;
+    background-color: #ece9e9;
+}
+
+input[type="radio"]:checked + label .slider__decorator {
+    background-color: inherit;
+}
+
+/*!* Анимация для слайдов *!
+@keyframes slide-out-next {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}*/
+
+
+/* Slider Controls*/
+
+
+/*
+
+@keyframes cycle {
+    !*Стоит 3 секунды*!
+    0% {
+        left: 0
+    }
+    20% {
+        left: 0;
+        opacity: 1
+    }
+    !*3сек = 20%*!
+    !*уход 2 секунды*!
+    34% {
+        left: -680px;
+        opacity: 1
+    }
+    !*2 сек = 13%*!
+    54% {
+        left: -680px;
+        opacity: 1
+    }
+    !*уход в право 2сек и стоит 3 сек*!
+    67% {
+        left: 680px;
+        opacity: 0;
+        z-index: -1
+    }
+    87% {
+        left: 680px;
+        opacity: 0;
+        z-index: 0
+    }
+    100% {
+        left: 0px;
+        opacity: 1;
+        z-index: 1
+    }
+}
+*/
+
+/*!!!!!!!!!!!!!!!*/
+
+
+/*!* Стили для текста рядом с радио-кнопкой *!
+input[type="radio"] + label + span {
+    margin-left: 8px;
+    vertical-align: middle;
+    cursor: pointer;
+}*/
+
+/*
+input[type="radio"]:checked { !*действие при чек*!
+    color: red; !* Изменение цвета текста *!
+    font-weight: bold; !* Сделать текст жирным *!
+    background-color: yellow; !* Изменение цвета фона *!
+}*/
+
+
+/*
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 19px; !*Размер вашей кнопки или чекбокса*!
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    background: red;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+    background: green;
+}*/
