@@ -1,4 +1,8 @@
-﻿html {
+﻿* {
+    box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -10,157 +14,103 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1280px;
-    padding: 0 40px;
+    max-width: 64rem;
     margin: 0 auto;
 }
 
-/* V1 */
-/*.slider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0 50px;
-    background-color: rgba(204, 191, 196, 0.6);
+.none {
+    display: none
 }
-
-.slider__slides {
-    display: flex;
-/ / justify-content: center;
-    overflow: hidden;
-    max-width: 700px;
-}
-
-.slider__slide {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-}
-
-.slide__img {
-    width: 700px;
-    height: 320px;
-    border-radius: 9px;
-}
-
-.slide__text {
-   
-}*/
 
 .slider {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 10px 0 50px;
+    margin: auto;
+    padding: 0 1rem;
     background-color: rgba(204, 191, 196, 0.6);
 }
 
-.slider__img {
+
+.slider__controls {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*text*/
+
+.carousel__captions {
+    order: 2;
     overflow: hidden;
-    max-width: 700px;
+    max-width: 80%;
+}
+
+.slider__texts {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: 100%; /* 100% for each slide */
 }
 
 .slider__text {
-    display: flex;
-    overflow: hidden;
-    max-width: 350px;
+    flex: 1 0 100%; /* Occupy full width */
+    width: 100%;
+
+    white-space: normal; /* Позволяет переносить текст */
+    word-wrap: break-word; /* Перенос длинных слов */
+    overflow-wrap: break-word; /* Перенос длинных слов */
 }
 
 .slide__text {
-    display: block;
-    width: 350px;
+    font-size: 1rem; /* базовый размер шрифта */
+    /* max-width: 50%;*/
+    word-wrap: break-word;
+    /*width: 50%;*/ /* текст не будет выходить за пределы контейнера */
+
 }
 
-/* V2 */
+
+/*img*/
+.carousel__content {
+    order: 1;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.slider__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* width: 100vw;
+    height: 100%;*/
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
 
 .slide__img {
-    width: 700px;
-    height: 320px;
-    border-radius: 9px;
+    width: 100%;
+    max-height: 320px;
+    border-radius: 1rem;
+    flex-shrink: 0; /* Предотвращает сжатие изображений */
+
 }
-
-
-/* Основной контейнер для слайдов */
-
-
-/* Управление слайдами */
-/*#slide--1:checked~ .slider__img #slider__slide--1 {
-    animation: none;
-}
-#slide--2:checked~  .slider__img #slider__slide--2 {
-    animation: none;
-}
-
-.firstAnimation {
-    animation: slide-out-next 5s linear infinite;
-}
-.secondAnimation {
-    animation: slide-out-next 5s linear infinite;
-}
-
-@keyframes slide-out-next {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(calc(-700px));
-    }
-}*/
-
-
-.slider {
-    position: relative;
-}
-
-.slider__img, .slider__text {
-    display: flex;
-    overflow: hidden;
-}
-
-.slider__slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Изменение отображения слайдов на основе чекбоксов */
-#slide--1:checked ~ .slider__slides {
-    transform: translateX(0%);
-}
-
-#slide--2:checked ~ .slider__slides {
-    transform: translateX(-100%);
-}
-
-#slide--3:checked ~ .slider__slides {
-    transform: translateX(-200%);
-}
-
-#slide--4:checked ~ .slider__slides {
-    transform: translateX(-300%);
-}
-
 
 
 /* Slider Controls*/
+.dddd {
+}
 
 input[type="radio"] {
     display: none;
 }
 
-.slider__controls {
-    display: flex;
-
-}
-
 .slider__label {
-    padding: 4px 4px 8px 4px;
+    display: flex;
+    align-items: center;
+    order: 3;
+    padding: 8px 4px;
     cursor: pointer;
 }
-   
+
 .slider__decorator {
+
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -185,90 +135,62 @@ input[type="radio"]:checked + label .slider__decorator {
     background-color: inherit;
 }
 
-/*!* Анимация для слайдов *!
-@keyframes slide-out-next {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}*/
 
-
-/* Slider Controls*/
-
-
-/*
-
-@keyframes cycle {
-    !*Стоит 3 секунды*!
-    0% {
-        left: 0
-    }
-    20% {
-        left: 0;
-        opacity: 1
-    }
-    !*3сек = 20%*!
-    !*уход 2 секунды*!
-    34% {
-        left: -680px;
-        opacity: 1
-    }
-    !*2 сек = 13%*!
-    54% {
-        left: -680px;
-        opacity: 1
-    }
-    !*уход в право 2сек и стоит 3 сек*!
-    67% {
-        left: 680px;
-        opacity: 0;
-        z-index: -1
-    }
-    87% {
-        left: 680px;
-        opacity: 0;
-        z-index: 0
-    }
-    100% {
-        left: 0px;
-        opacity: 1;
-        z-index: 1
-    }
-}
-*/
-
-/*!!!!!!!!!!!!!!!*/
-
-
-/*!* Стили для текста рядом с радио-кнопкой *!
-input[type="radio"] + label + span {
-    margin-left: 8px;
-    vertical-align: middle;
-    cursor: pointer;
-}*/
-
-/*
-input[type="radio"]:checked { !*действие при чек*!
-    color: red; !* Изменение цвета текста *!
-    font-weight: bold; !* Сделать текст жирным *!
-    background-color: yellow; !* Изменение цвета фона *!
-}*/
-
-
-/*
-input[type="checkbox"] + label span {
-    display: inline-block;
-    width: 19px; !*Размер вашей кнопки или чекбокса*!
-    height: 19px;
-    margin: -1px 4px 0 0;
-    vertical-align: middle;
-    background: red;
-    cursor: pointer;
+.slider__controls #slide--1:checked ~ .carousel__content .slider__img {
+    transform: translateX(0%);
 }
 
-input[type="checkbox"]:checked + label span {
-    background: green;
-}*/
+.slider__controls #slide--2:checked ~ .carousel__content .slider__img {
+    transform: translateX(-100%);
+}
+
+.slider__controls #slide--3:checked ~ .carousel__content .slider__img {
+    transform: translateX(-200%);
+}
+
+.slider__controls #slide--4:checked ~ .carousel__content .slider__img {
+    transform: translateX(-300%);
+}
+
+.slider__controls #slide--1:checked ~ .carousel__captions .slider__texts {
+    transform: translateX(0%);
+}
+
+.slider__controls #slide--2:checked ~ .carousel__captions .slider__texts {
+    transform: translateX(-100%);
+}
+
+.slider__controls #slide--3:checked ~ .carousel__captions .slider__texts {
+    transform: translateX(-200%);
+}
+
+.slider__controls #slide--4:checked ~ .carousel__captions .slider__texts {
+    transform: translateX(-300%);
+}
+
+
+@media (max-width: 550px) {
+
+
+    .carousel__captions {
+        order: 3;
+        max-width: 100%;
+    }
+
+    .slider__controls {
+        justify-content: center;
+    }
+
+    .slide__text {
+        font-size: 1rem; /* еще сильнее уменьшаем на очень маленьких экранах */
+
+    }
+
+
+    .slider__label {
+        order: 2;
+
+    }
+
+
+}
