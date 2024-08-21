@@ -159,12 +159,30 @@ input[type="radio"]:checked + label .slider__decorator {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 930px) {
+    .carousel__captions {
+        order: 2;
+        overflow: hidden;
+        max-width: 80%;
+        margin-right: 6%;
+        align-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .slider {
+        padding: 2rem 1rem;
+    }
+
     .carousel__captions {
         order: 3;
         max-width: 100%;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         margin-right: 0;
+    }
+    .carousel__content {
+        
+        margin-bottom: 1.5rem;
     }
 
     .slider__controls {
